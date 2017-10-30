@@ -1,0 +1,56 @@
+---
+title: Histograms
+author: Anne Borofski
+date: '2017-10-29'
+slug: histograms
+categories: []
+tags: []
+---
+
+Next, we have histograms. Histograms are used to depict the amount and shape of a single set of data. 
+
+Load those packages!
+```{r}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+```
+
+Below, we will be using the example of MLB players and looking at their weight. We get this information from the Lahman database and with the help of the Master table.
+
+```{r}
+query<-"SELECT weight FROM Master"
+
+result<-sqldf(query)
+```
+
+Now we will turn the extracted data into a visualization in the form of a histogram!
+
+```{r}
+ggplot()+
+  geom_histogram(data=result,aes(x=weight),color="black",fill="white",bins=60)+
+  ggtitle("Distribution of MLB Player's Bodyweight")+
+  xlab("Weight of player")
+  ylab("Number of players")
+                   
+```
+
+Here, there are some new things to take note of. We used geom_histogram to indicate we want a histogram. Also, color is referring to the border of the bar and fill is refering to the actual color fill of the bar. Next, the bins refers to the number of bars shown on the graph output. So, following this, there will be a few examples of why bin number matters and how it can change the whole look of the historgram.
+
+```{r}
+ggplot()+
+  geom_histogram(data=result,aes(x=weight),color="black",fill="white",bins=10)+
+  ggtitle("Distribution of MLB Player's Bodyweight")+
+  xlab("Weight of player")
+  ylab("Number of players")
+```
+
+```{r}
+ggplot()+
+  geom_histogram(data=result,aes(x=weight),color="black",fill="white",bins=100)+
+   ggtitle("Distribution of MLB Player's Bodyweight")+
+  xlab("Weight of player")+
+  ylab("Number of players")
+```
+
+The two examples above show a dramtic change when you change the bin number. The bins were changed from 60, 10, to 100 respectively. This concludes our histogram lesson!

@@ -1,0 +1,38 @@
+---
+title: Time Series
+author: Anne Borofski
+date: '2017-10-29'
+slug: time-series
+categories: []
+tags: []
+---
+
+Welcome back! This time we are going to work on time series. A time series lets you put two sets of data to each other but one must be a variable of time.
+
+Remember, load your packages.
+```{r}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+```
+
+This time we will extract data about Babe Ruth's homeruns over his twenty-two seasons.
+
+```{r}
+query<-"SELECT yearID,HR FROM Batting WHERE playerID='ruthba01'"
+
+result<-sqldf(query)
+```
+
+Here we will make our time series visualization. Unlike the scatterplot, the data will be shown as lines, connecting to each point for easy reading throughout the years.
+
+```{r}
+ggplot()+
+  geom_point(data=result,aes(x=yearID,y=HR),size=1/2)+
+  geom_line(data=result,aes(x=yearID,y=HR))+
+  ggtitle("Babe Ruth's Homeruns by Year")+
+  xlab("Year")+
+  ylab("Number of Homeruns")
+```
+
+There we go! Above is a great example of a time series!

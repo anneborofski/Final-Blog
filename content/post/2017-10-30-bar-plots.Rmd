@@ -1,0 +1,40 @@
+---
+title: Bar Plots
+author: Anne Borofski
+date: '2017-10-30'
+slug: bar-plots
+categories: []
+tags: []
+---
+
+Our data visualization lessons will wrap up with a lesson on bar plots!
+
+Like always, load the packages.
+```{r}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+```
+
+Bar plots are useful when you want to show different levels of attributes or factors. The example we will use will look at MLB teams in 1980s and their team homerun totals.
+
+```{r}
+query<-"SELECT name,HR FROM Teams WHERE yearID=1980 ORDER BY HR"
+
+result<-sqldf(query)
+
+result$name<-factor(result$name,levels=result$name)
+```
+
+The last line is something new. We need to add this line to save the information as a factor which tells it to order the data in the order we want and not by the systems default.
+
+```{r}
+ggplot()+
+  geom_bar(data=result,aes(x=name,y=HR),stat='identity')+
+  coord_flip()+
+  ggtitle("1980 Team Homerun Totals")+
+  xlab("Team Name")+
+  ylab("Homeruns")
+```
+
+There are just a few more things that are new with bar plots that are unlike any other graphs we have made. geom_bar is used to state we want a bar plot, stat='identity' is used to get the correct label, and coord_flip is the command to flip the bars to horizontal instead of the default, vertical.

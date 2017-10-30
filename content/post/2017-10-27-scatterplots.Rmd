@@ -1,13 +1,52 @@
 ---
-title: Scatterplots
-author: Anne Borofski
+title: "Scatterplots"
+author: "Anne Borofski"
 date: '2017-10-27'
 slug: scatterplots
-categories: []
 tags: []
+categories: []
 ---
 
-```{r}
+Our first lesson is on scatterplots! Here, we will take data on homeruns and strikeouts to make a scatterplot. The data will be extracted from the Lahman database of baseball statistics to make our product.
 
+However, before we start, load the following packages below to make sure the computer knows which data to pull out.
+
+
+```{r}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
 ```
 
+Now, specify what information we are looking to show. Here, we are looking for career homeruns and strikeouts from players who had more than 400 homeruns. 
+
+```{r}
+query<-"SELECT playerID,sum(HR),sum(SO)
+FROM Batting
+GROUP BY playerID
+HAVING sum(HR)>400"
+
+sqldf(query)
+```
+Now we have the information we need. Next, use the same data but instead save it as a result.
+
+```{r}
+query<-"SELECT playerID,sum(HR) AS CareerHR,sum(SO) AS CareerSO
+FROM Batting
+GROUP BY playerID
+HAVING sum(HR)>400"
+
+result<-sqldf(query)
+```
+
+The last step is to turn the data into points. We can do this by using the homeruns as the y-axis and the strikeouts as the x-axis. It can be useful to add a graph title and axis labels to make the scatterplot more sophisticated and easier to read. 
+
+```{r}
+ggplot()+
+  geom_point(data=result,aes(x=CareerSO,y=CareerHR),size=3)+
+  ggtitle("Career Strikeouts and Homeruns")+
+  xlab("Career Strikeouts")+
+  ylab("Career Homeruns")
+```
+
+There we go! Looking back up above: ggplot() makes the blank template of a scatterplot and geom_point() is a command to make the data as points. Also, aes is short for aesthetic, here you can tell which axis goes with which set of data. Finally, the last three lines let you add a title and names of each axis.
