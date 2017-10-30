@@ -56,15 +56,9 @@
 
             <p>Next, we have histograms. Histograms are used to depict the amount and shape of a single set of data.</p>
 <p>Load those packages!</p>
-<pre class="r"><code>library(Lahman)</code></pre>
-<pre><code>## Warning: package &#39;Lahman&#39; was built under R version 3.4.2</code></pre>
-<pre class="r"><code>library(sqldf)</code></pre>
-<pre><code>## Warning: package &#39;sqldf&#39; was built under R version 3.4.2</code></pre>
-<pre><code>## Loading required package: gsubfn</code></pre>
-<pre><code>## Loading required package: proto</code></pre>
-<pre><code>## Loading required package: RSQLite</code></pre>
-<pre class="r"><code>library(ggplot2)</code></pre>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.4.2</code></pre>
+<pre class="r"><code>library(Lahman)
+library(sqldf)
+library(ggplot2)</code></pre>
 <p>Below, we will be using the example of MLB players and looking at their weight. We get this information from the Lahman database and with the help of the Master table.</p>
 <pre class="r"><code>query&lt;-&quot;SELECT weight FROM Master&quot;
 

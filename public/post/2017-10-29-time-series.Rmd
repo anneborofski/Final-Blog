@@ -10,7 +10,7 @@ tags: []
 Welcome back! This time we are going to work on time series. A time series lets you put two sets of data to each other but one must be a variable of time.
 
 Remember, load your packages.
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(Lahman)
 library(sqldf)
 library(ggplot2)

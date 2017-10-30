@@ -10,7 +10,7 @@ tags: []
 Next, we have histograms. Histograms are used to depict the amount and shape of a single set of data. 
 
 Load those packages!
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(Lahman)
 library(sqldf)
 library(ggplot2)

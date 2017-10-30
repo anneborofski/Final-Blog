@@ -11,15 +11,9 @@ tags: []
 
 <p>Our data visualization lessons will wrap up with a lesson on bar plots!</p>
 <p>Like always, load the packages.</p>
-<pre class="r"><code>library(Lahman)</code></pre>
-<pre><code>## Warning: package &#39;Lahman&#39; was built under R version 3.4.2</code></pre>
-<pre class="r"><code>library(sqldf)</code></pre>
-<pre><code>## Warning: package &#39;sqldf&#39; was built under R version 3.4.2</code></pre>
-<pre><code>## Loading required package: gsubfn</code></pre>
-<pre><code>## Loading required package: proto</code></pre>
-<pre><code>## Loading required package: RSQLite</code></pre>
-<pre class="r"><code>library(ggplot2)</code></pre>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.4.2</code></pre>
+<pre class="r"><code>library(Lahman)
+library(sqldf)
+library(ggplot2)</code></pre>
 <p>Bar plots are useful when you want to show different levels of attributes or factors. The example we will use will look at MLB teams in 1980s and their team homerun totals.</p>
 <pre class="r"><code>query&lt;-&quot;SELECT name,HR FROM Teams WHERE yearID=1980 ORDER BY HR&quot;
 

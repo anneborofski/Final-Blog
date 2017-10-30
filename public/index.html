@@ -54,28 +54,16 @@
 </span>
 </footer>
 
-    <p><p>Our data visualization lessons will wrap up with a lesson on bar plots!
+    <p>Our data visualization lessons will wrap up with a lesson on bar plots!
 Like always, load the packages.
-library(Lahman)</p>
-
-<h2 id="warning-package-39-lahman-39-was-built-under-r-version-3-4-2">Warning: package &#39;Lahman&#39; was built under R version 3.4.2</h2>
-
-<p>library(sqldf)</p>
-
-<h2 id="warning-package-39-sqldf-39-was-built-under-r-version-3-4-2">Warning: package &#39;sqldf&#39; was built under R version 3.4.2</h2>
-
-<h2 id="loading-required-package-gsubfn">Loading required package: gsubfn</h2>
-
-<h2 id="loading-required-package-proto">Loading required package: proto</h2>
-
-<h2 id="loading-required-package-rsqlite">Loading required package: RSQLite</h2>
-
-<p>library(ggplot2)</p>
-
-<h2 id="warning-package-39-ggplot2-39-was-built-under-r-version-3-4-2">Warning: package &#39;ggplot2&#39; was built under R version 3.4.2</h2>
-
-<p>Bar plots are useful when you want to show different levels of attributes or factors.</p>
-&hellip;</p>
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+Bar plots are useful when you want to show different levels of attributes or factors. The example we will use will look at MLB teams in 1980s and their team homerun totals.
+query&lt;-&quot;SELECT name,HR FROM Teams WHERE yearID=1980 ORDER BY HR&quot;
+result&lt;-sqldf(query)
+result$name&lt;-factor(result$name,levels=result$name)
+The last line is something new. We need to add this line to save the information as a factor which tells it to order the data in the order we want and not by the systems default.&hellip;</p>
     <a href="https://annieblog.netlify.com/post/bar-plots/" title="Bar Plots">Read more &raquo;</a>
 </article>
 
@@ -91,28 +79,15 @@ library(Lahman)</p>
 </span>
 </footer>
 
-    <p><p>Next, we have histograms. Histograms are used to depict the amount and shape of a single set of data.
+    <p>Next, we have histograms. Histograms are used to depict the amount and shape of a single set of data.
 Load those packages!
-library(Lahman)</p>
-
-<h2 id="warning-package-39-lahman-39-was-built-under-r-version-3-4-2">Warning: package &#39;Lahman&#39; was built under R version 3.4.2</h2>
-
-<p>library(sqldf)</p>
-
-<h2 id="warning-package-39-sqldf-39-was-built-under-r-version-3-4-2">Warning: package &#39;sqldf&#39; was built under R version 3.4.2</h2>
-
-<h2 id="loading-required-package-gsubfn">Loading required package: gsubfn</h2>
-
-<h2 id="loading-required-package-proto">Loading required package: proto</h2>
-
-<h2 id="loading-required-package-rsqlite">Loading required package: RSQLite</h2>
-
-<p>library(ggplot2)</p>
-
-<h2 id="warning-package-39-ggplot2-39-was-built-under-r-version-3-4-2">Warning: package &#39;ggplot2&#39; was built under R version 3.4.2</h2>
-
-<p>Below, we will be using the example of MLB players and looking at their weight.</p>
-&hellip;</p>
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+Below, we will be using the example of MLB players and looking at their weight. We get this information from the Lahman database and with the help of the Master table.
+query&lt;-&quot;SELECT weight FROM Master&quot;
+result&lt;-sqldf(query)
+Now we will turn the extracted data into a visualization in the form of a histogram!&hellip;</p>
     <a href="https://annieblog.netlify.com/post/histograms/" title="Histograms">Read more &raquo;</a>
 </article>
 
@@ -128,26 +103,15 @@ library(Lahman)</p>
 </span>
 </footer>
 
-    <p><p>Welcome back! This time we are going to work on time series. A time series lets you put two sets of data to each other but one must be a variable of time.
+    <p>Welcome back! This time we are going to work on time series. A time series lets you put two sets of data to each other but one must be a variable of time.
 Remember, load your packages.
-library(Lahman)</p>
-
-<h2 id="warning-package-39-lahman-39-was-built-under-r-version-3-4-2">Warning: package &#39;Lahman&#39; was built under R version 3.4.2</h2>
-
-<p>library(sqldf)</p>
-
-<h2 id="warning-package-39-sqldf-39-was-built-under-r-version-3-4-2">Warning: package &#39;sqldf&#39; was built under R version 3.4.2</h2>
-
-<h2 id="loading-required-package-gsubfn">Loading required package: gsubfn</h2>
-
-<h2 id="loading-required-package-proto">Loading required package: proto</h2>
-
-<h2 id="loading-required-package-rsqlite">Loading required package: RSQLite</h2>
-
-<p>library(ggplot2)</p>
-
-<h2 id="warning-package-39-ggplot2-39-was-built-under-r-version-3">Warning: package &#39;ggplot2&#39; was built under R version 3.</h2>
-&hellip;</p>
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+This time we will extract data about Babe Ruth’s homeruns over his twenty-two seasons.
+query&lt;-&quot;SELECT yearID,HR FROM Batting WHERE playerID=&#39;ruthba01&#39;&quot;
+result&lt;-sqldf(query)
+Here we will make our time series visualization. Unlike the scatterplot, the data will be shown as lines, connecting to each point for easy reading throughout the years.&hellip;</p>
     <a href="https://annieblog.netlify.com/post/time-series/" title="Time Series">Read more &raquo;</a>
 </article>
 
@@ -163,16 +127,12 @@ library(Lahman)</p>
 </span>
 </footer>
 
-    <p><p>Our first lesson is on scatterplots! Here, we will take data on homeruns and strikeouts to make a scatterplot. The data will be extracted from the Lahman database of baseball statistics to make our product.
+    <p>Our first lesson is on scatterplots! Here, we will take data on homeruns and strikeouts to make a scatterplot. The data will be extracted from the Lahman database of baseball statistics to make our product.
 However, before we start, load the following packages below to make sure the computer knows which data to pull out.
-library(Lahman)</p>
-
-<h2 id="warning-package-39-lahman-39-was-built-under-r-version-3-4-2">Warning: package &#39;Lahman&#39; was built under R version 3.4.2</h2>
-
-<p>library(sqldf)</p>
-
-<h2 id="warning-package-39-sqldf-39-was-built-under-r-version-3">Warning: package &#39;sqldf&#39; was built under R version 3.</h2>
-&hellip;</p>
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+Now, specify what information we are looking to show. Here, we are looking for career homeruns and strikeouts from players who had more than 400 homeruns.&hellip;</p>
     <a href="https://annieblog.netlify.com/post/scatterplots/" title="Scatterplots">Read more &raquo;</a>
 </article>
 

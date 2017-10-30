@@ -12,7 +12,7 @@ Our first lesson is on scatterplots! Here, we will take data on homeruns and str
 However, before we start, load the following packages below to make sure the computer knows which data to pull out.
 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(Lahman)
 library(sqldf)
 library(ggplot2)

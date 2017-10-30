@@ -10,7 +10,7 @@ tags: []
 Our data visualization lessons will wrap up with a lesson on bar plots!
 
 Like always, load the packages.
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(Lahman)
 library(sqldf)
 library(ggplot2)
