@@ -24,7 +24,7 @@ query<-"SELECT weight FROM Master"
 result<-sqldf(query)
 ```
 
-Now we will turn extracted data into a visualization in the form of a histogram!
+Now we will turn the extracted data into a visualization in the form of a histogram!
 
 ```{r}
 ggplot()+
@@ -35,7 +35,7 @@ ggplot()+
                    
 ```
 
-Here, there are some new things to take note of. We used geom_histogram to indicate we want a histogram. Also, color is referring to the border of the bar and fill is refering to the actual color fill of the bar. Next, the bins refers to the number of bars shown on the graph output. So, following this will be a few examples of why bin number matters and how it can change the whole look of the historgram.
+Here, there are some new things to take note of. We used geom_histogram to indicate we want a histogram. Also, color is referring to the border of the bar and fill is refering to the actual color fill of the bar. Next, the bins refers to the number of bars shown on the graph output. So, following this, there will be a few examples of why bin number matters and how it can change the whole look of the historgram.
 
 ```{r}
 ggplot()+

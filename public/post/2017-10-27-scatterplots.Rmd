@@ -7,7 +7,7 @@ tags: []
 categories: []
 ---
 
-Our first lesson is one Scatterplots! Here, we will take data on homeruns and strikeouts to make a scatterplot. The data will be extracted from the Lahman database of baseball statistics to make our product.
+Our first lesson is on scatterplots! Here, we will take data on homeruns and strikeouts to make a scatterplot. The data will be extracted from the Lahman database of baseball statistics to make our product.
 
 However, before we start, load the following packages below to make sure the computer knows which data to pull out.
 
@@ -19,6 +19,7 @@ library(ggplot2)
 ```
 
 Now, specify what information we are looking to show. Here, we are looking for career homeruns and strikeouts from players who had more than 400 homeruns. 
+
 ```{r}
 query<-"SELECT playerID,sum(HR),sum(SO)
 FROM Batting
@@ -27,7 +28,7 @@ HAVING sum(HR)>400"
 
 sqldf(query)
 ```
-Now we have the information we need. Next use the same data but instead save it as a result.
+Now we have the information we need. Next, use the same data but instead save it as a result.
 
 ```{r}
 query<-"SELECT playerID,sum(HR) AS CareerHR,sum(SO) AS CareerSO

@@ -26,7 +26,7 @@ result<-sqldf(query)
 result$name<-factor(result$name,levels=result$name)
 ```
 
-The last line is something new this time. We need to add this line to save the information as a factor which tells it to order the data in the order we want and not by the systems default.
+The last line is something new. We need to add this line to save the information as a factor which tells it to order the data in the order we want and not by the systems default.
 
 ```{r}
 ggplot()+
@@ -37,4 +37,4 @@ ggplot()+
   ylab("Homeruns")
 ```
 
-There are just a few more things that are new with bar plots than any other graphs we have made. geom_bar is used to state we want a bar plot, stat='identity' is used to get the correct label, and coord_flip is the command to flip the bars to horizontal instead of the default, vertical.
+There are just a few more things that are new with bar plots that are unlike any other graphs we have made. geom_bar is used to state we want a bar plot, stat='identity' is used to get the correct label, and coord_flip is the command to flip the bars to horizontal instead of the default, vertical.

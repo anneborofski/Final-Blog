@@ -54,7 +54,7 @@
 </span>
 </footer>
 
-            <p>Our first lesson is one Scatterplots! Here, we will take data on homeruns and strikeouts to make a scatterplot. The data will be extracted from the Lahman database of baseball statistics to make our product.</p>
+            <p>Our first lesson is on scatterplots! Here, we will take data on homeruns and strikeouts to make a scatterplot. The data will be extracted from the Lahman database of baseball statistics to make our product.</p>
 <p>However, before we start, load the following packages below to make sure the computer knows which data to pull out.</p>
 <pre class="r"><code>library(Lahman)</code></pre>
 <pre><code>## Warning: package &#39;Lahman&#39; was built under R version 3.4.2</code></pre>
@@ -128,7 +128,7 @@ sqldf(query)</code></pre>
 ## 53 willite01     521     709
 ## 54 winfida01     465    1686
 ## 55 yastrca01     452    1393</code></pre>
-<p>Now we have the information we need. Next use the same data but instead save it as a result.</p>
+<p>Now we have the information we need. Next, use the same data but instead save it as a result.</p>
 <pre class="r"><code>query&lt;-&quot;SELECT playerID,sum(HR) AS CareerHR,sum(SO) AS CareerSO
 FROM Batting
 GROUP BY playerID

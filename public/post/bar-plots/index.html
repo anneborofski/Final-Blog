@@ -71,7 +71,7 @@
 result&lt;-sqldf(query)
 
 result$name&lt;-factor(result$name,levels=result$name)</code></pre>
-<p>The last line is something new this time. We need to add this line to save the information as a factor which tells it to order the data in the order we want and not by the systems default.</p>
+<p>The last line is something new. We need to add this line to save the information as a factor which tells it to order the data in the order we want and not by the systems default.</p>
 <pre class="r"><code>ggplot()+
   geom_bar(data=result,aes(x=name,y=HR),stat=&#39;identity&#39;)+
   coord_flip()+
@@ -79,7 +79,7 @@ result$name&lt;-factor(result$name,levels=result$name)</code></pre>
   xlab(&quot;Team Name&quot;)+
   ylab(&quot;Homeruns&quot;)</code></pre>
 <p><img src="/post/2017-10-30-bar-plots_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>There are just a few more things that are new with bar plots than any other graphs we have made. geom_bar is used to state we want a bar plot, stat=‘identity’ is used to get the correct label, and coord_flip is the command to flip the bars to horizontal instead of the default, vertical.</p>
+<p>There are just a few more things that are new with bar plots that are unlike any other graphs we have made. geom_bar is used to state we want a bar plot, stat=‘identity’ is used to get the correct label, and coord_flip is the command to flip the bars to horizontal instead of the default, vertical.</p>
 
             
 

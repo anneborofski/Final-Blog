@@ -51,7 +51,7 @@ library(Lahman)## Warning: package &amp;#39;Lahman&amp;#39; was built under R v
       <pubDate>Fri, 27 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://annieblog.netlify.com/post/scatterplots/</guid>
-      <description>Our first lesson is one Scatterplots! Here, we will take data on homeruns and strikeouts to make a scatterplot. The data will be extracted from the Lahman database of baseball statistics to make our product.
+      <description>Our first lesson is on scatterplots! Here, we will take data on homeruns and strikeouts to make a scatterplot. The data will be extracted from the Lahman database of baseball statistics to make our product.
 However, before we start, load the following packages below to make sure the computer knows which data to pull out.
 library(Lahman)## Warning: package &amp;#39;Lahman&amp;#39; was built under R version 3.4.2library(sqldf)## Warning: package &amp;#39;sqldf&amp;#39; was built under R version 3.</description>
     </item>
